@@ -1,0 +1,2 @@
+failed_transaction_id,user_id,subscription_id,transaction_id,fail_error,update_ts
+960001,10429,583021,860001,wrong_cvc,2026-11-05T12:09:00Z

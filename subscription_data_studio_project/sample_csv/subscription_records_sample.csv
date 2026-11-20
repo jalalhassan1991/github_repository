@@ -1,0 +1,2 @@
+subscription_id,user_id,subscription_length,trial_start_ts,subscription_start_ts,subscription_end_ts,subscription_type,subscription_status,cancel_status,gross_revenue,total_discount,total_prorate,total_tax,total_transactions,failed_transactions,refunds,chargebacks,last_update_ts
+583021,10429,1,2026-10-28T17:42:18Z,2026-11-04T17:42:18Z,,new_subscription,active,,34.99,3.75,0.00,2.27,2,0,0.00,0.00,2026-11-04T17:42:22Z
