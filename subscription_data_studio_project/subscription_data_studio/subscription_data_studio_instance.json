@@ -1,0 +1,977 @@
+{
+  "format": "subscription-data-studio-instance",
+  "version": 1,
+  "savedAt": "2026-11-20T03:09:17.163Z",
+  "generator": {
+    "generated": true,
+    "run": {
+      "count": 50000,
+      "hist": 1825,
+      "masterSeed": 3280873347,
+      "now": "2026-11-20T03:08:59.587Z",
+      "campaign": {
+        "SEM": "Autumn_Search_Refresh",
+        "SEO": "Organic_Landing_Pages",
+        "Affiliate": "Partner_Pilot_North",
+        "Directload": "Directload",
+        "TV": "Prime_Time_Reach",
+        "Radio": "Regional_Morning_Spot"
+      },
+      "options": {
+        "optDiscount": true,
+        "optFailures": true,
+        "optChanges": true,
+        "optCancels": true,
+        "optOneTime": true,
+        "optChargebacks": true,
+        "distributionMode": "weighted"
+      }
+    },
+    "count": 50000,
+    "hist": 1825,
+    "masterSeed": 3280873347,
+    "options": {
+      "optDiscount": true,
+      "optFailures": true,
+      "optChanges": true,
+      "optCancels": true,
+      "optOneTime": true,
+      "optChargebacks": true,
+      "distributionMode": "weighted"
+    }
+  },
+  "workspace": {
+    "customAttributes": [
+      {
+        "id": "attr_subscription_start_dt",
+        "lookmlName": "subscription_start_dt",
+        "name": "dates",
+        "source": "",
+        "datePart": "",
+        "caseExpr": "date([subscription_records.subscription_start_ts])",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "date"
+      },
+      {
+        "id": "attr_state",
+        "lookmlName": "state",
+        "name": "geography",
+        "source": "user_records.state",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_city",
+        "lookmlName": "city",
+        "name": "geography",
+        "source": "user_records.city",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_dob",
+        "lookmlName": "dob",
+        "name": "demographic",
+        "source": "user_records.dob",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_subscription_type",
+        "lookmlName": "subscription_type",
+        "name": "subscription",
+        "source": "subscription_records.subscription_type",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_subscription_status",
+        "lookmlName": "subscription_status",
+        "name": "subscription",
+        "source": "subscription_records.subscription_status",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_cancel_status",
+        "lookmlName": "cancel_status",
+        "name": "subscription",
+        "source": "subscription_records.cancel_status",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_payment_processor",
+        "lookmlName": "payment_processor",
+        "name": "payment",
+        "source": "transaction_records.payment_processor",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_card_brand",
+        "lookmlName": "card_brand",
+        "name": "payment",
+        "source": "transaction_records.card_brand",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_subscription_length",
+        "lookmlName": "subscription_length",
+        "name": "subscription",
+        "source": "subscription_records.subscription_length",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_payment_status",
+        "lookmlName": "payment_status",
+        "name": "scheduled",
+        "source": "scheduled_subscription_payment_records.payment_status",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      },
+      {
+        "id": "attr_renewal_number",
+        "lookmlName": "renewal_number",
+        "name": "scheduled",
+        "source": "scheduled_subscription_payment_records.renewal_number",
+        "datePart": "",
+        "caseExpr": "",
+        "description": "",
+        "folder": "General",
+        "tags": "",
+        "type": "string"
+      }
+    ],
+    "customMetrics": [
+      {
+        "id": "metric_gross_revenue",
+        "lookmlName": "gross_revenue",
+        "label": "revenue",
+        "kind": "column",
+        "source": "transaction_records.gross_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_net_revenue",
+        "lookmlName": "net_revenue",
+        "label": "revenue",
+        "kind": "column",
+        "source": "transaction_records.net_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_total_subscriptions",
+        "lookmlName": "total_subscriptions",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_type] in ('new_subscription','reactivation') then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_new_subscriptions",
+        "lookmlName": "new_subscriptions",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_type]='new_subscription' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_reactivations",
+        "lookmlName": "reactivations",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_type]='reactivation' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_active_subscriptions",
+        "lookmlName": "active_subscriptions",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_status]='active' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_cancelled_subscriptions",
+        "lookmlName": "cancelled_subscriptions",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_status]='cancelled' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_pending_cancellation_subscriptions",
+        "lookmlName": "pending_cancellation_subscriptions",
+        "label": "subscription",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [subscription_records.subscription_status]='pending_cancellation' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_percent_reactivations",
+        "lookmlName": "percent_reactivations",
+        "label": "subscription",
+        "kind": "ratio",
+        "numerator": "metric_reactivations",
+        "denominator": "metric_total_subscriptions",
+        "asPercent": true,
+        "aggregation": "ratio",
+        "format": "percent",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_percent_new_subscriptions",
+        "lookmlName": "percent_new_subscriptions",
+        "label": "subscription",
+        "kind": "ratio",
+        "numerator": "metric_new_subscriptions",
+        "denominator": "metric_total_subscriptions",
+        "asPercent": true,
+        "aggregation": "ratio",
+        "format": "percent",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_percent_cancelled_subscriptions",
+        "lookmlName": "percent_cancelled_subscriptions",
+        "label": "subscription",
+        "kind": "ratio",
+        "numerator": "metric_cancelled_subscriptions",
+        "denominator": "metric_total_subscriptions",
+        "asPercent": true,
+        "aggregation": "ratio",
+        "format": "percent",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_percent_pending_cancellation_subscriptions",
+        "lookmlName": "percent_pending_cancellation_subscriptions",
+        "label": "subscription",
+        "kind": "ratio",
+        "numerator": "metric_pending_cancellation_subscriptions",
+        "denominator": "metric_total_subscriptions",
+        "asPercent": true,
+        "aggregation": "ratio",
+        "format": "percent",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_percent_active_subscriptions",
+        "lookmlName": "percent_active_subscriptions",
+        "label": "subscription",
+        "kind": "ratio",
+        "numerator": "metric_active_subscriptions",
+        "denominator": "metric_total_subscriptions",
+        "asPercent": true,
+        "aggregation": "ratio",
+        "format": "percent",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_discounts",
+        "lookmlName": "discounts",
+        "label": "revenue",
+        "kind": "column",
+        "source": "transaction_records.discount_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_scheduled_gross_revenue",
+        "lookmlName": "scheduled_gross_revenue",
+        "label": "scheduled",
+        "kind": "column",
+        "source": "scheduled_subscription_payment_records.gross_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_scheduled_discounts",
+        "lookmlName": "scheduled_discounts",
+        "label": "scheduled",
+        "kind": "column",
+        "source": "scheduled_subscription_payment_records.discount_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_scheduled_net_revenue",
+        "lookmlName": "scheduled_net_revenue",
+        "label": "scheduled",
+        "kind": "column",
+        "source": "scheduled_subscription_payment_records.scheduled_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_total_renewals",
+        "lookmlName": "total_renewals",
+        "label": "scheduled",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [scheduled_subscription_payment_records.payment_status] in ('paid','scheduled') then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_scheduled_taxes",
+        "lookmlName": "scheduled_taxes",
+        "label": "scheduled",
+        "kind": "column",
+        "source": "scheduled_subscription_payment_records.tax_amount",
+        "formula": "",
+        "aggregation": "sum",
+        "format": "currency",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_paid_renewals",
+        "lookmlName": "paid_renewals",
+        "label": "scheduled",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [scheduled_subscription_payment_records.payment_status]='paid' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      },
+      {
+        "id": "metric_scheduled_renewals",
+        "lookmlName": "scheduled_renewals",
+        "label": "scheduled",
+        "kind": "formula",
+        "source": "",
+        "formula": "case when [scheduled_subscription_payment_records.payment_status]='scheduled' then 1 else 0 end",
+        "aggregation": "sum",
+        "format": "number",
+        "description": "",
+        "folder": "General",
+        "tags": ""
+      }
+    ],
+    "reportSheets": [
+      {
+        "id": "sheet_1",
+        "name": "Subscription",
+        "widgets": [
+          {
+            "id": "module_10",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "____",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_total_subscriptions",
+                  "label": "total_subscriptions"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": false,
+              "axesExpanded": false,
+              "metrics": [
+                "metric_total_subscriptions"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_total_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "below_green",
+              "configurationHidden": true
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_11",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "___",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_new_subscriptions",
+                  "label": "percent_new_subscriptions"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": true,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_percent_new_subscriptions"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_percent_new_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "above_green",
+              "configurationHidden": true,
+              "thresholdValue": ""
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_12",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "___",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_reactivations",
+                  "label": "percent_reactivations"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": true,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_percent_reactivations"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_percent_reactivations",
+              "thresholdEnabled": false,
+              "thresholdDirection": "below_green",
+              "configurationHidden": true,
+              "thresholdValue": ""
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_13",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "___",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_active_subscriptions",
+                  "label": "percent_active_subscriptions"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": true,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_percent_active_subscriptions"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_percent_active_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "below_green",
+              "configurationHidden": true,
+              "thresholdValue": ""
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_15",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "___",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_pending_cancellation_subscriptions",
+                  "label": "percent_pending_cancellation_subscriptions"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": true,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_percent_pending_cancellation_subscriptions"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_percent_pending_cancellation_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "below_green",
+              "configurationHidden": true,
+              "thresholdValue": ""
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_14",
+            "colSpan": 4,
+            "rowSpan": 6,
+            "name": "___",
+            "subtitle": "___",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_cancelled_subscriptions",
+                  "label": "percent_cancelled_subscriptions"
+                }
+              ],
+              "yFields": [],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "metric_card",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": true,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_percent_cancelled_subscriptions"
+              ],
+              "axis": "none",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_percent_cancelled_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "below_green",
+              "configurationHidden": true,
+              "thresholdValue": ""
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          },
+          {
+            "id": "module_7",
+            "colSpan": 12,
+            "rowSpan": 18,
+            "name": "---",
+            "subtitle": "-",
+            "needsRefresh": true,
+            "config": {
+              "xFields": [
+                {
+                  "kind": "metric",
+                  "id": "metric_total_subscriptions",
+                  "label": "total_subscriptions"
+                },
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_new_subscriptions",
+                  "label": "percent_new_subscriptions"
+                },
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_reactivations",
+                  "label": "percent_reactivations"
+                },
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_active_subscriptions",
+                  "label": "percent_active_subscriptions"
+                },
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_cancelled_subscriptions",
+                  "label": "percent_cancelled_subscriptions"
+                },
+                {
+                  "kind": "metric",
+                  "id": "metric_percent_pending_cancellation_subscriptions",
+                  "label": "percent_pending_cancellation_subscriptions"
+                }
+              ],
+              "yFields": [
+                {
+                  "kind": "dimension",
+                  "id": "attr_subscription_start_dt",
+                  "label": "subscription_start_dt"
+                }
+              ],
+              "compare": "none",
+              "alignment": "calendar",
+              "grain": "auto",
+              "chartType": "spreadsheet",
+              "layout": "stacked",
+              "overlays": [],
+              "configurationExpanded": false,
+              "axesExpanded": true,
+              "metrics": [
+                "metric_total_subscriptions",
+                "metric_percent_new_subscriptions",
+                "metric_percent_reactivations",
+                "metric_percent_active_subscriptions",
+                "metric_percent_cancelled_subscriptions",
+                "metric_percent_pending_cancellation_subscriptions"
+              ],
+              "axis": "attr_subscription_start_dt",
+              "flipAxis": false,
+              "sortOrder": "descending",
+              "thresholdMetric": "metric_total_subscriptions",
+              "thresholdEnabled": false,
+              "thresholdDirection": "above_green",
+              "configurationHidden": true
+            },
+            "lastRunId": null,
+            "lastDefinitionRevision": null
+          }
+        ],
+        "filters": [],
+        "dateRange": {
+          "period": "all_time"
+        }
+      }
+    ],
+    "activeSheetId": "sheet_1",
+    "sheetCounter": 23,
+    "definitionHistory": [
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "revenue",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "revenue",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "measure",
+        "label": "revenue",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "scheduled",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "payment",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "payment",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "subscription",
+        "action": "Updated"
+      },
+      {
+        "ts": "2026-11-20T00:32:25.976Z",
+        "kind": "dimension",
+        "label": "demographic",
+        "action": "Updated"
+      }
+    ],
+    "definitionText": "dimension: subscription_start_dt {\n  label: \"dates\"\n  type: date\n  sql: date(${subscription_records.subscription_start_ts}) ;;\n}\n\ndimension: state {\n  label: \"geography\"\n  type: string\n  sql: ${user_records.state} ;;\n}\n\ndimension: city {\n  label: \"geography\"\n  type: string\n  sql: ${user_records.city} ;;\n}\n\ndimension: dob {\n  label: \"demographic\"\n  type: string\n  sql: ${user_records.dob} ;;\n}\n\ndimension: subscription_type {\n  label: \"subscription\"\n  type: string\n  sql: ${subscription_records.subscription_type} ;;\n}\n\ndimension: subscription_status {\n  label: \"subscription\"\n  type: string\n  sql: ${subscription_records.subscription_status} ;;\n}\n\ndimension: cancel_status {\n  label: \"subscription\"\n  type: string\n  sql: ${subscription_records.cancel_status} ;;\n}\n\ndimension: payment_processor {\n  label: \"payment\"\n  type: string\n  sql: ${transaction_records.payment_processor} ;;\n}\n\ndimension: card_brand {\n  label: \"payment\"\n  type: string\n  sql: ${transaction_records.card_brand} ;;\n}\n\ndimension: subscription_length {\n  label: \"subscription\"\n  type: string\n  sql: ${subscription_records.subscription_length} ;;\n}\n\ndimension: payment_status {\n  label: \"scheduled\"\n  type: string\n  sql: ${scheduled_subscription_payment_records.payment_status} ;;\n}\n\ndimension: renewal_number {\n  label: \"scheduled\"\n  type: string\n  sql: ${scheduled_subscription_payment_records.renewal_number} ;;\n}\n\nmeasure: gross_revenue {\n  label: \"revenue\"\n  type: sum\n  sql: ${transaction_records.gross_amount} ;;\n  value_format: currency\n}\n\nmeasure: net_revenue {\n  label: \"revenue\"\n  type: sum\n  sql: ${transaction_records.net_amount} ;;\n  value_format: currency\n}\n\nmeasure: total_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_type} in ('new_subscription','reactivation') then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: new_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_type}='new_subscription' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: reactivations {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_type}='reactivation' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: active_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_status}='active' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: cancelled_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_status}='cancelled' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: pending_cancellation_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_status}='pending_cancellation' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: percent_reactivations {\n  label: \"subscription\"\n  type: number\n  sql: {{reactivations}} / {{total_subscriptions}} ;;\n  value_format: percent\n}\n\nmeasure: percent_new_subscriptions {\n  label: \"subscription\"\n  type: number\n  sql: {{new_subscriptions}} / {{total_subscriptions}} ;;\n  value_format: percent\n}\n\nmeasure: percent_cancelled_subscriptions {\n  label: \"subscription\"\n  type: number\n  sql: {{cancelled_subscriptions}} / {{total_subscriptions}} ;;\n  value_format: percent\n}\n\nmeasure: percent_pending_cancellation_subscriptions {\n  label: \"subscription\"\n  type: number\n  sql: {{pending_cancellation_subscriptions}} / {{total_subscriptions}} ;;\n  value_format: percent\n}\n\nmeasure: percent_active_subscriptions {\n  label: \"subscription\"\n  type: number\n  sql: {{active_subscriptions}} / {{total_subscriptions}} ;;\n  value_format: percent\n}\n\nmeasure: discounts {\n  label: \"revenue\"\n  type: sum\n  sql: ${transaction_records.discount_amount} ;;\n  value_format: currency\n}\n\nmeasure: scheduled_gross_revenue {\n  label: \"scheduled\"\n  type: sum\n  sql: ${scheduled_subscription_payment_records.gross_amount} ;;\n  value_format: currency\n}\n\nmeasure: scheduled_discounts {\n  label: \"scheduled\"\n  type: sum\n  sql: ${scheduled_subscription_payment_records.discount_amount} ;;\n  value_format: currency\n}\n\nmeasure: scheduled_net_revenue {\n  label: \"scheduled\"\n  type: sum\n  sql: ${scheduled_subscription_payment_records.scheduled_amount} ;;\n  value_format: currency\n}\n\nmeasure: total_renewals {\n  label: \"scheduled\"\n  type: sum\n  sql: case when ${scheduled_subscription_payment_records.payment_status} in ('paid','scheduled') then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: scheduled_taxes {\n  label: \"scheduled\"\n  type: sum\n  sql: ${scheduled_subscription_payment_records.tax_amount} ;;\n  value_format: currency\n}\n\nmeasure: paid_renewals {\n  label: \"scheduled\"\n  type: sum\n  sql: case when ${scheduled_subscription_payment_records.payment_status}='paid' then 1 else 0 end ;;\n  value_format: numeric\n}\n\nmeasure: scheduled_renewals {\n  label: \"scheduled\"\n  type: sum\n  sql: case when ${scheduled_subscription_payment_records.payment_status}='scheduled' then 1 else 0 end ;;\n  value_format: numeric\n}",
+    "evaluationText": "measure: pending_cancellation_subscriptions {\n  label: \"subscription\"\n  type: sum\n  sql: case when ${subscription_records.subscription_status}='pending_cancellation' then 1 else 0 end ;;\n  value_format: numeric\n}",
+    "evaluationSampleCount": "5"
+  }
+}
