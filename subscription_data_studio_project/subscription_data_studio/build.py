@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import platform
 import re
 import shutil
@@ -19,6 +20,7 @@ RULES_SOURCE = ROOT / "subscription_data_studio_logic.md"
 RULES_COPY = ROOT / "subscription_data_studio_logic.md"
 EXAMPLE_GUIDE = ROOT / "EXAMPLE_PROJECT.md"
 DICTIONARY_FILE = ROOT / "data_dictionary_definitions.js"
+DEFAULT_INSTANCE_FILE = ROOT / "subscription_data_studio_instance.json"
 WINDOWS_DIR = ROOT / "launchers" / "windows"
 WINDOWS_HTML = WINDOWS_DIR / "subscription_data_studio.html"
 MAC_DIR = ROOT / "launchers" / "mac"
@@ -41,6 +43,13 @@ def sync_sources() -> None:
     ) + "\n  </script>"
 
     html = SOURCE_HTML.read_text(encoding="utf-8")
+    html = re.sub(
+        r"<script>window\.__SUBSCRIPTION_STUDIO_DEFAULTS__=.*?</script>",
+        "<!-- DEFAULT_STUDIO_INSTANCE -->",
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
     updated, count = re.subn(
         r"<script>.*?</script>",
         lambda _match: embedded,
@@ -50,6 +59,10 @@ def sync_sources() -> None:
     )
     if count != 1:
         raise RuntimeError(f"Expected one inline script in {SOURCE_HTML}")
+    if DEFAULT_INSTANCE_FILE.exists():
+        defaults = json.dumps(json.loads(DEFAULT_INSTANCE_FILE.read_text(encoding="utf-8")), separators=(",", ":")).replace("</", "<\\/")
+        default_script = f"<script>window.__SUBSCRIPTION_STUDIO_DEFAULTS__={defaults};</script>"
+        updated = updated.replace("<!-- DEFAULT_STUDIO_INSTANCE -->", default_script)
 
     SOURCE_HTML.write_text(updated, encoding="utf-8")
     WINDOWS_HTML.write_text(updated, encoding="utf-8")
