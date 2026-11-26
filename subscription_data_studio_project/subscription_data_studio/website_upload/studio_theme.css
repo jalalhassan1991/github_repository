@@ -1,0 +1,2768 @@
+/* Landing-page design tokens and typography are copied directly by build.py.
+   Components use flat fills per the Studio design request. */
+:root {
+  --ink: #302f2b;
+  --muted: #6b675f;
+  --line: #ded8cc;
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --teal: #4c4a45;
+  --teal-dark: #302f2b;
+  --mint: #ebe6dc;
+  --gold: #b18b4c;
+  --gold-text: #806337;
+  --shadow: 0 12px 30px rgba(54, 51, 44, .08);
+  --shadow: none;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 14px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body :is(button, input, select) {
+  font-family: inherit;
+}
+
+body :is(h1, h2, h3, h4, h5) {
+  font-weight: 650;
+}
+
+body .shell {
+  padding: 26px 28px 64px;
+}
+
+body .topline.product-topbar {
+  min-height: 68px;
+  padding: 11px 16px;
+  gap: 20px;
+  margin-bottom: 36px;
+  background: #302f2b;
+  color: var(--card);
+  border: 1px solid #535149;
+  border-radius: 14px;
+  box-shadow: none;
+  grid-template-columns: minmax(220px, 1fr) auto;
+}
+
+body .product-title {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -.03em;
+  color: var(--card);
+}
+
+body .product-topbar .app-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+body .product-topbar .view-tabs {
+  gap: 7px;
+}
+
+body .product-topbar .view-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #d3cfc4;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 9px 12px;
+}
+
+body .product-topbar .view-tab:is(.active, :hover) {
+  color: var(--card);
+  background: #ffffff10;
+  border-color: transparent;
+}
+
+body .product-topbar .instance-actions button {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: #e5dece;
+  height: 36px;
+  font-size: 12px;
+}
+
+body .product-topbar .local {
+  font-size: 11px;
+  flex-basis: 100%;
+  color: #c1bdb3;
+}
+
+body :is(.hero, .report-intro) {
+  display: block;
+  max-width: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+body :is(.hero, .report-intro) h1 {
+  margin-top: 22px;
+  font-size: clamp(44px, 5.35vw, 69px);
+  line-height: 1.07;
+  letter-spacing: -.065em;
+  font-weight: 650;
+  margin: 18px 0 16px;
+}
+
+body :is(.hero, .report-intro) p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 780px;
+  margin: 0;
+}
+
+body .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font: 500 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+body .eyebrow::before {
+  content: "";
+  flex: 0 0 20px;
+  height: 2px;
+  background: var(--gold);
+}
+
+body :is(.card, .report-widget, .dictionary-evaluator, .syntax-assist-card, .evaluation-results-card, .evaluation-code-card) {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+body :is(.stat, .kpi, .metric-card, .dictionary-preview, .report-controls, .sheet-toolbar) {
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body :is(button, .view-tab, .sheet-tab, .axis-field-chip, .palette-field, .field-pill, .filter-chip) {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+body button {
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+body button:is(.primary, .secondary),
+body .widget-actions button,
+body .sheet-actions button {
+  background: #302f2b;
+  color: var(--card);
+  border: 1px solid #302f2b;
+  border-radius: 8px;
+}
+
+body button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+body :is(input, select, textarea) {
+  border-color: var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+body :is(input, select) {
+  background: var(--card);
+}
+
+body :is(input, select, textarea, button):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+body :is(.definition-editor, .evaluation-code) {
+  background: var(--card);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body :is(.axis-field-chip, .field-pill, .filter-chip, .sheet-tab) {
+  background: var(--mint);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 8px;
+}
+
+body .definition-suggestions {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+body .designed-by-note {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-style: italic;
+}
+
+@media(max-width:1120px) {
+  body .topline.product-topbar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  body .product-topbar .app-toolbar {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media(max-width:760px) {
+  body .shell {
+    padding: 16px 16px 40px;
+  }
+
+  body .product-topbar .view-tabs {
+    flex-wrap: wrap;
+  }
+
+  body :is(.hero, .report-intro) h1 {
+    font-size: 40px;
+  }
+}
+
+/* Override legacy high-specificity reporting chrome without changing plot colors. */
+html body .topline.product-topbar {
+  background: #302f2b !important;
+  box-shadow: none !important;
+}
+
+html body .app-toolbar .instance-actions button {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+
+html body .product-topbar .view-tab {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: #d3cfc4 !important;
+}
+
+html body .product-topbar .view-tab.active {
+  background: #ffffff10 !important;
+  color: var(--card) !important;
+}
+
+html body .sheet-toolbar button {
+  background: #302f2b !important;
+  color: var(--card) !important;
+  border-color: #302f2b !important;
+}
+
+html body .report-widget {
+  background: var(--card) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+
+html body .report-widget .widget-top {
+  background: var(--card) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+html body .report-widget .widget-top input {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
+
+html body .report-widget .widget-actions button {
+  background: #302f2b !important;
+  color: var(--card) !important;
+  border-color: #302f2b !important;
+}
+
+html body .report-widget .module-drag-handle {
+  background: transparent !important;
+  color: var(--muted) !important;
+}
+
+html body :is(.report-controls, .palette-group, .palette-label-group, .module-config-section, .axis-drop, .widget-axis-shelf, .sheet-toolbar) {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: none !important;
+}
+
+html body .report-widget :is(.widget-subtitle, .widget-empty, .axis-hint) {
+  color: var(--muted);
+}
+
+html body .report-widget :is(.widget-title-input, .widget-subtitle-input) {
+  color: var(--ink);
+}
+
+/* Ivory text keeps all three Generator option cards readable on charcoal. */
+#generatorView .feature-box {
+  background: #302f2b;
+  color: #fffdf8;
+  border-color: #535149;
+}
+
+#generatorView .feature-box :is(.feature-title, .feature-toggle, .path-row b, .check) {
+  color: #fffdf8;
+}
+
+#generatorView .feature-box :is(.feature-caption, .path-row, .box-note, .check small) {
+  color: #e1dcd2;
+}
+
+#generatorView .feature-box :is(.checks, .box-note) {
+  border-color: #6b675f;
+}
+
+#generatorView .feature-box input[type="checkbox"] {
+  accent-color: #b18b4c;
+}
+
+#generatorView .feature-box .price-chip {
+  background: #ebe6dc;
+  color: #302f2b;
+}
+
+/* Keep generation controls in two bounded columns, including narrow sidebars. */
+#generatorView .generation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+  margin-top: 14px;
+}
+
+#generatorView .generation-actions button {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Leave the reveal toggle available when the other header buttons are hidden. */
+.report-widget.header-buttons-hidden .widget-actions>button:not([data-widget-action="toggle-buttons"]),
+.report-widget.header-buttons-hidden .module-drag-handle {
+  display: none !important;
+}
+
+/* Compact reporting vocabulary folders; children stay behind the disclosure arrow. */
+html body #reportFieldPalette .dictionary-folder {
+  margin: 4px 0;
+  padding: 0;
+  border-radius: 8px;
+}
+
+html body #reportFieldPalette .dictionary-folder>summary {
+  padding: 6px 9px;
+  min-height: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+html body #reportFieldPalette .field-folder-items {
+  padding: 3px 8px 7px;
+}
+
+html body .metric-card-content {
+  display: flex !important;
+  min-height: 0;
+  overflow: hidden !important;
+  scrollbar-gutter: auto !important;
+}
+
+html body .metric-card-content .metric-card {
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  padding: clamp(2px, 1vw, 12px);
+  gap: 4px;
+  overflow: hidden;
+}
+
+html body .metric-card-content .metric-card :is(span, strong) {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  margin: 0;
+}
+
+/* A date name and its own window form one compact row; Custom reveals date inputs. */
+html body .independent-date-filters {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+html body .module-date-range-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(110px, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+html body .module-date-range-row .date-filter-name {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+html body .module-date-range-row select {
+  min-width: 0;
+  width: 100%;
+}
+
+html body .module-date-range-row .date-filter-custom {
+  grid-column: 1/-1;
+  min-width: 0;
+}
+
+html body .module-date-range-row .date-filter-custom:not([hidden]) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+html body .module-date-range-row .date-filter-custom input {
+  width: 100%;
+  min-width: 0;
+}
+
+html body .report-widget>.widget-subtitle {
+  display: none !important;
+}
+
+/* Tables share the landing-page surfaces and typography; threshold colors retain priority. */
+html body .spreadsheet-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+html body .spreadsheet-wrap .report-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--card);
+  color: var(--ink);
+}
+
+html body .spreadsheet-wrap .report-table :is(th, td) {
+  padding: 9px 12px;
+  border-color: var(--line);
+}
+
+html body .spreadsheet-wrap .report-table th {
+  background: var(--mint);
+  color: var(--ink);
+  font-weight: 650;
+}
+
+html body .spreadsheet-wrap .report-table tr:not(.threshold-band)>td:not(.threshold-band) {
+  background: var(--card);
+  color: var(--ink);
+}
+
+html body .spreadsheet-wrap .report-table .grand-total-row:not(.threshold-band)>td,
+html body .spreadsheet-wrap .report-table .grand-total-column:not(.threshold-band) {
+  background: var(--mint);
+  color: var(--ink);
+  font-weight: 650;
+}
+
+html body .spreadsheet-wrap .report-table tr.threshold-band>td {
+  background: inherit;
+  color: inherit;
+}
+
+/* One Day palette, matching the landing page, for all module setup sections. */
+html {
+  color-scheme: light;
+}
+
+html body .report-widget .module-config-section {
+  display: block;
+  margin: 8px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+html body .report-widget .module-config-section>summary {
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+}
+
+html body .report-widget .module-config-section[open]>summary {
+  border-bottom: 1px solid var(--line);
+}
+
+html body .report-widget .module-config-section>summary:hover {
+  background: var(--mint);
+  color: var(--ink);
+  border-radius: 11px;
+}
+
+html body .report-widget :is(.module-filter-pillbox, .widget-axis-shelf, .widget-config, .inspection-grid) {
+  padding: 10px 12px;
+  margin: 0;
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+html body .report-widget :is(.module-filter-pill, .axis-drop, .module-date-range-row) {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+html body .report-widget :is(.axis-drop b, .module-filter-pill b, .date-filter-name) {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+html body .report-widget .calculation-inspector>div {
+  padding: 10px 12px;
+  color: var(--ink);
+}
+
+html body .report-widget .calculation-inspector p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+html body .report-widget .module-date-filter {
+  margin: 8px;
+}
+
+html body .module-date-filter-fields {
+  container-type: inline-size;
+  padding: 10px 12px;
+  min-width: 0;
+}
+
+html body .module-date-range-row {
+  grid-template-columns: minmax(0, 1fr) minmax(105px, 1fr) 22px;
+}
+
+html body .module-date-range-row .date-filter-custom {
+  grid-column: 1/-1;
+  grid-row: 2;
+}
+
+html body .module-date-range-row .date-filter-custom[hidden] {
+  display: none !important;
+}
+
+html body .module-date-range-row .date-filter-remove {
+  grid-column: 3;
+  grid-row: 1;
+  width: 22px;
+  height: 22px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+  box-shadow: none;
+}
+
+html body .module-date-range-row .date-filter-remove:hover {
+  background: var(--mint);
+  color: var(--ink);
+}
+
+html body .independent-date-filters>button {
+  justify-self: start;
+  width: auto;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+@container(min-width:760px) {
+  html body .module-date-range-row:has(.date-filter-custom:not([hidden])) {
+    grid-template-columns: minmax(110px, 1fr) minmax(110px, .8fr) minmax(240px, 1.7fr) 22px;
+  }
+
+  html body .module-date-range-row:has(.date-filter-custom:not([hidden])) .date-filter-custom {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  html body .module-date-range-row:has(.date-filter-custom:not([hidden])) .date-filter-remove {
+    grid-column: 4;
+  }
+}
+
+/* Axis pills use the landing-page neutrals rather than legacy purple fills. */
+html body .report-widget .axis-drop .axis-field-chip {
+  background: var(--mint);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background-image: none;
+  box-shadow: none;
+  border-radius: 8px;
+}
+
+html body .report-widget .axis-drop .axis-field-chip .axis-field-name {
+  color: var(--ink);
+}
+
+html body .report-widget .axis-drop .axis-field-chip .axis-sort-select {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+html body .report-widget .axis-drop .axis-field-chip button {
+  background: transparent;
+  color: var(--ink);
+  border-color: transparent;
+}
+
+html body .report-widget .axis-drop .axis-field-chip:hover {
+  background: #dfd8ca;
+  color: var(--ink);
+  border-color: #b9b1a3;
+}
+
+html body .report-widget .axis-drop .axis-field-chip.drag-over-before {
+  border-left: 3px solid var(--ink);
+}
+
+html body .report-widget .axis-drop .axis-field-chip.drag-over-after {
+  border-right: 3px solid var(--ink);
+}
+
+html body .report-widget .axis-drop:focus-within {
+  border-color: #b18b4c;
+}
+
+/* Date controls and axis pills share one compact type treatment. */
+html body .report-widget {
+  --module-pill-font-size: 9px;
+}
+
+html body .report-widget .axis-drop .axis-field-chip,
+html body .report-widget .axis-drop .axis-field-chip .axis-field-name,
+html body .report-widget .module-date-filter :is(.date-filter-name, select, input, label, button, .filter-drop-placeholder) {
+  font-family: inherit;
+  font-size: var(--module-pill-font-size);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+html body .report-widget .module-date-range-row {
+  padding: 4px 6px;
+  gap: 6px;
+}
+
+html body .report-widget .module-date-filter :is(select, input) {
+  height: 23px;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+html body .report-widget .module-date-filter .date-filter-remove {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+}
+
+html body .report-widget .independent-date-filters>button {
+  min-height: 0;
+  height: 24px;
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+
+/* Bulk value selection and Apply/Clear All use the same button component. */
+html body .report-widget .filter-picker-bulk {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+html body .report-widget :is(.module-filter-actions, .filter-picker-bulk)>button {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 22px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--mint);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+html body .report-widget :is(.module-filter-actions, .filter-picker-bulk)>button:hover:not(:disabled) {
+  background: #dfd8ca;
+  color: var(--ink);
+  border-color: #b9b1a3;
+  filter: none;
+}
+
+/* Multiple measures share the Metric Card canvas without adding scrollbars. */
+html body .metric-card-grid {
+  display: grid;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+  grid-template-columns: repeat(var(--metric-card-columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--metric-card-rows), minmax(0, 1fr));
+  overflow: hidden;
+}
+
+html body .metric-card-content .metric-card-grid .metric-card {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+html body .module-date-drill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+
+html body .module-date-drill :is(button, select) {
+  min-width: 0;
+  width: auto;
+  max-width: 100%;
+  height: 23px;
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 9px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+html body .module-date-drill small {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+html body .date-window-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+html body .date-window-actions span {
+  font-size: 9px;
+  color: var(--muted);
+}
+
+html body .date-window-actions button {
+  width: auto;
+  height: 24px;
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+
+@container(min-width:300px) {
+  html body .independent-date-filters {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  html body .independent-date-filters .module-date-range-row {
+    grid-column: 1;
+  }
+
+  html body .independent-date-filters .date-window-actions {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 4px;
+  }
+
+  html body .independent-date-filters .date-window-actions span {
+    display: none;
+  }
+}
+
+html body .filter-autocomplete-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 0 7px;
+}
+
+html body .filter-autocomplete-suggestions[hidden] {
+  display: none;
+}
+
+html body .filter-autocomplete-suggestions button {
+  background: var(--mint);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 3px 6px;
+  font: inherit;
+  font-size: 9px;
+}
+
+html body .filter-autocomplete-suggestions button:is(:hover, :focus-visible) {
+  background: #dfd8ca;
+  color: #302f2b;
+}
+
+html body .chart-legend {
+  max-height: 120px;
+  overflow: auto;
+}
+
+html body .legend-swatch {
+  border: 1px solid #8d897c;
+}
+
+html body .chart-encoding-note {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.presentation-mode .module-date-drill {
+  display: none !important;
+}
+
+html body .palette-swatches {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+html body .palette-swatches i {
+  width: 14px;
+  height: 10px;
+  border: 1px solid #b9b1a3;
+  border-radius: 3px;
+}
+
+html body .module-date-drill {
+  justify-content: flex-start;
+}
+
+html body .module-date-drill>button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 13px;
+}
+
+html body .module-date-drill>span {
+  font-size: 9px;
+}
+
+/* Fine outlines keep light pastel marks distinct against the ivory chart surface. */
+html body .chart-wrap svg rect[data-chart-tooltip],
+html body .chart-wrap svg path[data-chart-tooltip] {
+  stroke: #8d897c;
+  stroke-width: .6px;
+}
+
+/* Compact vocabulary sidebar leaves more of the window for the report canvas. */
+html body.reporting-active .shell {
+  max-width: none;
+  width: 100%;
+  padding: 20px 24px 40px;
+}
+
+html body.reporting-active #reportingView .report-grid {
+  grid-template-columns: minmax(0, var(--report-sidebar-width, 360px)) 6px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+html body.reporting-active #reportingView .report-controls.mockup3-report-sidebar {
+  padding: 12px;
+  min-width: 0;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  overflow: visible !important;
+  scrollbar-gutter: auto;
+  position: relative;
+  top: auto;
+}
+
+html body.reporting-active #reportingView .mockup3-report-sidebar.report-sidebar-pinned {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+html body.reporting-active #reportingView .report-controls :is(.field-palette-panel, .field-palette) {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  overflow: visible;
+  scrollbar-gutter: auto;
+}
+
+html body.reporting-active #reportingView .report-controls h2 {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+html body.reporting-active #reportingView .report-controls :is(.report-note, .report-status) {
+  font-size: 10px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+html body.reporting-active #reportingView .field-palette-panel {
+  padding: 8px;
+  margin: 8px 0;
+}
+
+html body.reporting-active #reportingView .field-search-label {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+html body.reporting-active #reportingView #reportFieldSearch {
+  width: 100%;
+  height: 27px;
+  padding: 4px 6px;
+  font-size: 10px;
+}
+
+html body.reporting-active #reportFieldPalette .dictionary-folder>summary {
+  padding: 5px 7px;
+  font-size: 10px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+html body.reporting-active #reportFieldPalette .dictionary-chip {
+  padding: 3px 5px;
+  font-size: 9px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  min-width: 0;
+}
+
+html body.reporting-active .sidebar-module-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  align-items: stretch;
+}
+
+html body.reporting-active .sidebar-module-actions>button {
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  height: auto;
+  padding: 5px 6px;
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+html body .report-widget.placeholder-widget {
+  background: transparent !important;
+  border: 1px dashed var(--line) !important;
+  box-shadow: none !important;
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 0;
+}
+
+html body .placeholder-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  opacity: .65;
+}
+
+html body .placeholder-widget:is(:hover, :focus-within) .placeholder-actions {
+  opacity: 1;
+}
+
+html body .placeholder-actions>button {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 9px;
+  padding: 3px 5px;
+}
+
+html body .placeholder-actions>span {
+  flex: 1 1 auto;
+}
+
+html body.presentation-mode .report-widget.placeholder-widget {
+  border-color: transparent !important;
+}
+
+html body.presentation-mode .placeholder-widget :is(.placeholder-actions, .module-resize-handle) {
+  display: none !important;
+}
+
+@media(min-width:901px) {
+  html body.reporting-active .report-sidebar-resizer {
+    display: block;
+  }
+}
+
+@media(max-width:900px) {
+  html body.reporting-active .shell {
+    padding: 16px 14px 32px;
+  }
+
+  html body.reporting-active #reportingView .report-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  html body.reporting-active #reportingView .report-controls {
+    grid-column: 1;
+  }
+
+  html body.reporting-active #reportingView .report-results {
+    grid-column: 1;
+  }
+
+  html body.reporting-active .report-sidebar-resizer {
+    display: none;
+  }
+}
+
+/* Legacy mobile form rules must not turn the two add buttons into separate rows. */
+html body.reporting-active #reportingView .report-controls.mockup3-report-sidebar {
+  display: block;
+}
+
+html body.reporting-active .sidebar-module-actions>button {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  height: 40px;
+  min-height: 40px;
+}
+
+/* Scrollable 12-column workspace with a 20px row pitch. */
+html body .report-grid-info {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+html body .report-canvas-scroll {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 72vh;
+  min-height: 420px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  scrollbar-gutter: stable;
+}
+
+html body .report-canvas-inner {
+  min-width: 1944px;
+  width: 100%;
+  padding-left: 24px;
+  box-sizing: border-box;
+}
+
+html body .canvas-column-ruler {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 6px;
+  height: 22px;
+  position: sticky;
+  top: 0;
+  z-index: 35;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 9px;
+  text-align: center;
+}
+
+html body .canvas-column-ruler span {
+  border-bottom: 1px solid var(--line);
+  padding-top: 4px;
+}
+
+html body .report-canvas-scroll #reportCharts {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(var(--report-canvas-rows, 80), 14px) !important;
+  grid-auto-rows: 14px !important;
+  grid-auto-flow: row !important;
+  gap: 6px !important;
+  min-height: calc(var(--report-canvas-rows, 80) * 20px);
+  align-content: start;
+  overflow: visible !important;
+  background-image: linear-gradient(to right, rgba(48, 47, 43, .07) 1px, transparent 1px), linear-gradient(to bottom, rgba(48, 47, 43, .07) 1px, transparent 1px);
+  background-size: calc((100% + 6px)/12) 20px;
+}
+
+html body .report-canvas-scroll #reportCharts>.report-widget {
+  grid-column: var(--report-col-start)/span var(--report-col-span) !important;
+  grid-row: var(--report-row-start)/span var(--report-row-span) !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+html body .canvas-row-ruler {
+  position: absolute;
+  top: 0;
+  left: -24px;
+  width: 22px;
+  height: 100%;
+  pointer-events: none;
+  color: var(--muted);
+  font-size: 8px;
+  text-align: center;
+}
+
+html body .canvas-row-ruler span {
+  position: absolute;
+  left: 0;
+  width: 22px;
+  line-height: 14px;
+}
+
+html body .canvas-drop-preview {
+  position: absolute;
+  z-index: 40;
+  pointer-events: none;
+  background: rgba(177, 139, 76, .14);
+  border: 2px solid #b18b4c;
+  border-radius: 8px;
+  color: #302f2b;
+  font-size: 10px;
+  padding: 4px;
+}
+
+html body .canvas-drop-preview.invalid {
+  background: rgba(160, 80, 68, .12);
+  border-color: #a05044;
+}
+
+html body .canvas-empty {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 440px;
+  padding: 22px;
+}
+
+html body .placeholder-widget .placeholder-actions {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  min-width: 160px;
+  z-index: 30;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 3px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+html body .placeholder-widget:is(:hover, :focus-within) .placeholder-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+html body .report-canvas-scroll #reportCharts>.placeholder-widget {
+  overflow: visible;
+}
+
+html body.presentation-mode .report-canvas-scroll #reportCharts {
+  background-image: none;
+}
+
+html body.presentation-mode :is(.canvas-column-ruler, .canvas-row-ruler, .report-grid-info) {
+  visibility: hidden;
+}
+
+html body.presentation-mode .canvas-drop-preview {
+  display: none;
+}
+
+/* Selectable sheet sizes replace the former fixed high-resolution minimum. */
+html body .report-canvas-inner {
+  min-width: 0;
+  width: 1304px;
+}
+
+html body .sheet-actions {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+html body .sheet-actions select,
+html body .sheet-actions .workspace-inline {
+  font: inherit;
+  font-size: 11px;
+  max-width: 210px;
+}
+
+html body .workspace-inline {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+html body #reportSaveState {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+html body .sheet-parameter-panel {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+html body #sheetParameterInputs {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+html body .widget-title-row>input[type=checkbox] {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+}
+
+html body.report-layout-locked :is(.module-drag-handle, .module-resize-handle) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html body .report-record-dialog {
+  width: min(900px, 90vw);
+  max-height: 85vh;
+  overflow: auto;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+html body .report-record-dialog pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+
+html body.presentation-mode [data-module-select],
+html body.presentation-mode .sheet-parameter-panel {
+  display: none;
+}
+
+html body .configuration-hidden [data-analysis-controls] {
+  display: none;
+}
+
+html body .canvas-size-preview {
+  position: relative;
+  width: min(500px, 100%);
+  max-height: 350px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+html body .canvas-size-preview span {
+  position: absolute;
+  border: 1px solid #8d867a;
+  background: #e5ded0;
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+html body .preview-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Free scrolling canvas, with native scrolling retained and scrollbar chrome removed. */
+html body .report-canvas-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-gutter: auto;
+}
+
+html body .report-canvas-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html body.dictionary-active main {
+  max-width: none;
+  width: 100%;
+}
+
+html body #dictionaryView {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+}
+
+html body #dictionaryView .definition-editor-workspace {
+  display: block;
+  min-height: 65vh;
+}
+
+html body #dictionaryView .definition-editor-pane,
+html body #dictionaryView .dictionary-evaluator {
+  display: none !important;
+}
+
+html body #definitionCardWorkspace {
+  width: 100%;
+}
+
+html body .definition-create-actions,
+.definition-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+
+html body #definitionCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+html body .definition-type-stack {
+  min-width: 0;
+}
+
+html body .definition-type-stack>h3 {
+  margin: 8px 0 12px;
+}
+
+html body .definition-label-stack {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: var(--paper);
+}
+
+html body .definition-label-stack>summary {
+  padding: 12px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+html body .definition-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 9px 10px;
+}
+
+html body .definition-formula-card.metric-card {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: var(--ink);
+  overflow: visible;
+}
+
+html body .definition-formula-card>summary {
+  padding: 13px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+html body .definition-formula-card>summary span {
+  font: inherit;
+  color: inherit;
+}
+
+html body .definition-card-body {
+  padding: 0 12px 12px;
+  min-width: 0;
+}
+
+html body .definition-card-editor {
+  position: relative;
+}
+
+html body .definition-card-editor textarea {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  resize: vertical;
+  box-sizing: border-box;
+  white-space: pre;
+  overflow: auto;
+  font: 12px/1.65 ui-monospace, SFMono-Regular, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+html body .definition-card-actions button {
+  font: inherit;
+  font-size: 12px;
+}
+
+html body .definition-card-result {
+  max-width: 100%;
+  overflow: auto;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+html body .definition-card-result table {
+  width: 100%;
+}
+
+html body #definitionCards .code-suggestions {
+  z-index: 100;
+  max-height: 300px;
+  overflow: auto;
+}
+
+html body #reportCharts>.report-widget .widget-actions {
+  display: none !important;
+}
+
+html body #reportCharts>.report-widget:not(.module-selected)> :is(details, .module-date-drill) {
+  display: none !important;
+}
+
+html body #reportCharts>.report-widget.module-selected> :is(details, .module-date-drill) {
+  display: block !important;
+}
+
+html body #reportCharts>.report-widget:not(.module-selected) :is(.module-drag-handle, .module-resize-handle) {
+  visibility: hidden;
+}
+
+html body #reportCharts>.module-selected {
+  outline: 1px solid #92887a;
+  outline-offset: 2px;
+}
+
+html body .selected-module-toolbar {
+  position: fixed;
+  z-index: 220;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  box-shadow: 0 4px 12px #302f2b16;
+}
+
+html body .selected-module-toolbar[hidden] {
+  display: none !important;
+}
+
+html body .selected-module-toolbar strong {
+  font-size: 12px;
+  margin-right: auto;
+  overflow-wrap: anywhere;
+}
+
+html body .selected-module-toolbar button {
+  font-size: 11px;
+}
+
+html body.presentation-mode #selectedModuleToolbar,
+html body.presentation-mode #reportCharts>.report-widget> :is(details, .module-date-drill) {
+  display: none !important;
+}
+
+@media(max-width:1100px) {
+  html body #definitionCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:760px) {
+  html body #definitionCards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+html body.reporting-active,
+html body #reportingView :is(.report-widget, .widget-content, .report-table-wrap) {
+  scrollbar-width: none;
+}
+
+html body.reporting-active::-webkit-scrollbar,
+html body #reportingView :is(.report-widget, .widget-content, .report-table-wrap)::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html body #definitionStatus {
+  margin-top: 12px;
+}
+
+html body.dictionary-active .shell {
+  max-width: none !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html body .selected-module-toolbar strong {
+  max-width: 180px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html body .report-canvas-scroll #reportCharts>.report-widget.module-selected {
+  overflow: auto;
+}
+
+html body .sidebar-parameter {
+  padding: 6px 0;
+  min-width: 0;
+}
+
+html body .sidebar-parameter>span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+html body .sidebar-parameter label {
+  display: block;
+  margin: 4px 0;
+  font-size: 11px;
+}
+
+html body .sidebar-parameter :is(input, select) {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html body [data-apply-sidebar-parameters] {
+  margin: 8px 0;
+  font-size: 11px;
+}
+
+html body #definitionCards .code-suggestions {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+html body #definitionCards .code-suggestion-item {
+  display: flex;
+  gap: 6px;
+  margin: 5px 0;
+}
+
+html body #definitionCards .code-suggestions button {
+  appearance: none;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  background: #302f2b;
+  color: #f7f3ea;
+  border: 1px solid #302f2b;
+  border-radius: 7px;
+  padding: 7px 10px;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+html body #definitionCards .code-suggestions button code {
+  font: inherit;
+  color: inherit;
+  white-space: normal;
+}
+
+html body #definitionCards .code-suggestions button.active,
+html body #definitionCards .code-suggestions button:hover {
+  background: #57534b;
+  color: #fffdf8;
+}
+
+html body .definition-apply-error {
+  color: #8b2525;
+  border-left: 3px solid #8b2525;
+  padding: 8px;
+}
+
+html body #definitionCards .code-suggestions,
+html body #definitionCards .code-suggestions * {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Dictionary and selected-module setup share the same sidebar card geometry and typography. */
+html body #reportingView .sidebar-with-module-setup {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body .sidebar-dictionary-card,
+html body #moduleSidebarSetup {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+html body #moduleSidebarSetup {
+  margin-top: 12px;
+  min-width: 0;
+}
+
+html body #moduleSidebarSetup[hidden] {
+  display: none !important;
+}
+
+html body .module-sidebar-context.report-widget {
+  display: block !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  min-height: 0;
+  max-height: none;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+}
+
+html body #moduleSidebarSetup h2,
+html body .sidebar-dictionary-card h2 {
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+html body #moduleSidebarSetup .module-config-section {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  min-width: 0;
+}
+
+html body #moduleSidebarSetup details>summary {
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 9px 0;
+  cursor: pointer;
+}
+
+html body #moduleSidebarSetup .widget-config,
+html body #moduleSidebarSetup .widget-axis-shelf {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+}
+
+html body #moduleSidebarSetup :is(input, select, button, .dictionary-chip, .report-control, .filter-picker-toggle) {
+  font-family: inherit;
+  font-size: 11px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html body #moduleSidebarSetup :is(.report-control, .axis-drop, .threshold-controls) {
+  min-width: 0;
+}
+
+html body #moduleSidebarSetup .axis-field-chip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+html body #moduleSidebarSetup .axis-field-name {
+  overflow-wrap: anywhere;
+}
+
+html body #moduleSidebarSetup .threshold-bands {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html body #reportCharts>.report-widget.module-selected> :is(details, .module-date-drill) {
+  display: none !important;
+}
+
+html body.presentation-mode #moduleSidebarSetup {
+  display: none !important;
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details {
+  margin: 4px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details>summary {
+  display: list-item;
+  list-style: disclosure-closed inside;
+  padding: 5px 7px;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details[open]>summary {
+  list-style-type: disclosure-open;
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details>summary::after {
+  display: none;
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details>summary::-webkit-details-marker {
+  display: inline;
+}
+
+html body.reporting-active #reportingView .mockup3-report-sidebar.report-sidebar-pinned {
+  max-height: calc(100dvh - 24px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+html body.reporting-active #reportingView .mockup3-report-sidebar.report-sidebar-pinned::-webkit-scrollbar {
+  display: none;
+}
+
+/* All product tabs use the Generator page frame and typography. */
+html body .shell,
+html body.reporting-active .shell,
+html body.dictionary-active main.shell {
+  max-width: 1260px !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 26px 28px 64px;
+}
+
+html body .app-view {
+  min-height: calc(100dvh - 180px);
+}
+
+html body #functionDictionary[hidden],
+html body #definitionCards[hidden],
+html body .definition-create-actions button[hidden] {
+  display: none !important;
+}
+
+html body .function-reference-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin: 18px 0;
+}
+
+html body .function-reference-controls label {
+  display: grid;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1;
+  font-size: 12px;
+}
+
+html body .function-reference-controls :is(input, select) {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html body #functionDictionaryResults {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+html body .function-reference-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  min-width: 0;
+}
+
+html body .function-reference-card h3 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+html body .function-reference-card :is(p, span) {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+html body .function-reference-card pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 12px;
+  background: var(--paper);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+html body .function-reference-card button {
+  font: inherit;
+  font-size: 12px;
+}
+
+html body #functionDictionaryCount,
+html body .function-copy-status {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+html body .palette-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+}
+
+html body .palette-chart-preview {
+  width: 100px;
+  height: 40px;
+  flex: 0 0 100px;
+}
+
+@media(max-width:700px) {
+
+  html body .shell,
+  html body.reporting-active .shell,
+  html body.dictionary-active main.shell {
+    padding: 18px 14px 40px;
+  }
+
+  html body #functionDictionaryResults {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+html body #dictionaryView [hidden] {
+  display: none !important;
+}
+
+/* Two compact action rows retain the existing report width. */
+html body #reportingView .sheet-toolbar {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  min-height: 112px;
+  gap: 6px;
+  padding: 12px 14px;
+}
+
+html body #reportingView .sheet-toolbar .sheet-actions {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+
+html body #reportingView .sheet-toolbar button {
+  min-height: 26px !important;
+  height: auto !important;
+  padding: 4px 9px !important;
+  font-size: 11px !important;
+  line-height: 1.3;
+}
+
+html body #reportSaveState {
+  display: none !important;
+}
+
+html body #reportCharts>.report-widget {
+  cursor: grab;
+}
+
+html body #reportCharts>.report-widget :is(button, input, select, textarea, a, summary, [contenteditable="true"]) {
+  cursor: auto;
+}
+
+html body.report-layout-locked #reportCharts>.report-widget {
+  cursor: default;
+}
+
+html body.report-surface-dragging,
+html body.report-surface-dragging * {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+html body #reportCharts>.placeholder-widget {
+  border: 1px solid rgba(48, 47, 43, .22) !important;
+}
+
+html body #reportCharts>.placeholder-widget:is(:hover, .module-selected) {
+  border-color: rgba(48, 47, 43, .48) !important;
+}
+
+html body.presentation-mode #reportCharts>.placeholder-widget {
+  border-color: transparent !important;
+  cursor: default;
+}
+
+/* Twelve columns retain their original cell geometry instead of stretching. */
+html body.reporting-active main.shell {
+  max-width: 1260px !important;
+  width: 100%;
+  margin-inline: auto;
+  padding: 26px 28px 64px;
+}
+
+@media (max-width: 700px) {
+  html body.reporting-active main.shell {
+    padding: 18px 14px 40px;
+  }
+}
+
+html body #reportingView .sheet-toolbar .sheet-actions {
+  justify-content: flex-end !important;
+}
+
+html body #reportingView .sheet-tabs {
+  justify-content: flex-end;
+}
+
+html body #reportCanvasScroll {
+  overflow-x: auto !important;
+  max-width: 984.5px;
+  scrollbar-gutter: auto;
+}
+
+html body #reportCanvasInner {
+  width: 982.5px;
+  min-width: 0 !important;
+  max-width: none;
+}
+
+/* Keep the sheet toolbar and canvas on the same fixed-width report frame. */
+html body #reportingView .report-results {
+  width: 100%;
+  max-width: 984.5px;
+  min-width: 0;
+  box-sizing: border-box;
+  justify-self: start;
+}
+
+html body #reportingView .sheet-toolbar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Sheet management stays above the left-hand sheet names; report actions stay top-right. */
+html body #reportingView .sheet-toolbar {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  grid-template-rows: auto auto;
+  align-content: start;
+  align-items: start !important;
+  column-gap: 12px;
+  row-gap: 8px;
+}
+
+html body #reportingView .sheet-toolbar>.sheet-actions:not(.sheet-actions-secondary) {
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: flex-start !important;
+}
+
+html body #reportingView .sheet-toolbar>.sheet-actions-secondary {
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  flex-wrap: nowrap;
+  justify-content: flex-end !important;
+}
+
+html body #reportingView .sheet-toolbar>.sheet-tabs {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-content: flex-start;
+  align-self: start;
+  min-width: 0;
+}
+
+/* A quiet charcoal boundary distinguishes the report canvas from the page. */
+html body #reportCanvasScroll {
+  border: 1px solid rgba(48, 47, 43, .3) !important;
+}
+
+/* Include the sidebar, grid gaps and canvas borders without clipping column twelve. */
+html body.reporting-active main.shell {
+  max-width: calc(var(--report-sidebar-width, 360px) + 1070.5px) !important;
+}
+
+html body #reportStatus:empty {
+  display: none;
+}
+
+/* Date names sit above their own window selector. */
+html body .module-date-range-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+html body .module-date-range-row .date-filter-name {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+html body .module-date-range-row>select {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+html body .module-date-range-row .date-filter-remove {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+html body .module-date-range-row .date-filter-custom {
+  grid-row: 3;
+}
+
+/* Long inspector labels and values each get their own line in the narrow sidebar. */
+html body #moduleSidebarSetup .inspection-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 3px;
+  min-width: 0;
+}
+
+html body #moduleSidebarSetup .inspection-grid :is(dt, dd) {
+  float: none;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  margin: 0;
+  line-height: 1.45;
+  font-size: 11px;
+}
+
+html body #moduleSidebarSetup .inspection-grid dd {
+  margin-bottom: 9px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+html body .palette-control {
+  min-width: 0;
+}
+
+html body .palette-control>select[hidden] {
+  display: none !important;
+}
+
+html body .palette-picker {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  min-width: 0;
+  background: var(--paper);
+}
+
+html body .palette-picker>summary {
+  padding: 7px;
+  cursor: pointer;
+  list-style: none;
+}
+
+html body .palette-picker>summary::after {
+  content: '▾';
+  float: right;
+}
+
+html body .palette-choice-current {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 90%;
+}
+
+html body .palette-color-strip {
+  display: flex;
+  gap: 2px;
+  flex-wrap: nowrap;
+}
+
+html body .palette-color-strip i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid #302f2b22;
+  flex: 0 0 12px;
+}
+
+html body .palette-picker-options {
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 4px;
+  display: grid;
+  gap: 3px;
+  border-top: 1px solid var(--line);
+}
+
+html body .palette-picker-options>button {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  padding: 7px !important;
+  white-space: normal;
+  text-align: left;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border: 1px solid transparent !important;
+  font-size: 11px;
+}
+
+html body .palette-picker-options>button:is(:hover, [aria-pressed="true"]) {
+  border-color: #6b675f !important;
+  background: #e6dfd3 !important;
+}
+
+/* Preserve the sidebar footprint when it switches to its scrolling fixed position. */
+html body #reportingView .report-grid.report-sidebar-pinned-layout::before {
+  min-height: var(--report-sidebar-reserved-height, 1px);
+  height: var(--report-sidebar-reserved-height, 1px);
+  overflow-anchor: none;
+}
+
+/* Grow toward the left, keeping the existing report position when viewport space permits. */
+html body.reporting-active main.shell {
+  position: relative;
+  left: calc(-1 * min(max(0px, (100% - (var(--report-sidebar-width, 360px) + 1070.5px)) / 2), var(--report-sidebar-width, 360px) / 6));
+}
+
+@media(max-width:900px) {
+  html body.reporting-active main.shell {
+    left: 0;
+  }
+}
+
+@media(min-width:901px) and (max-width:1500px) {
+  html body.reporting-active main.shell {
+    padding-inline: 20px;
+  }
+}
+
+html body .axis-auto-fit-control {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+html body .axis-auto-fit-control input[type="checkbox"] {
+  width: 14px !important;
+  height: 14px !important;
+  min-height: 0 !important;
+  flex: 0 0 14px;
+  margin: 0;
+}
+
+/* Use the added vertical room for Apply instead of padding the date fields. */
+html body .report-widget .module-date-range-row {
+  padding-block: 4px;
+}
+
+html body .report-widget .independent-date-filters {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+html body .report-widget .independent-date-filters .date-window-actions {
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: 0;
+  min-height: 28.8px;
+  justify-content: flex-end;
+}
+
+html body .report-widget .independent-date-filters .date-window-actions span {
+  display: none;
+}
+
+html body .report-widget .date-window-actions button {
+  height: 28.8px;
+  min-height: 28.8px;
+  padding: 4px 9px;
+}
+
+html body .report-widget .independent-date-filters .module-date-range-row {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+/* Apply follows every date field, matching visual order and keyboard order. */
+html body .report-widget .independent-date-filters .date-window-actions {
+  grid-row: auto;
+  order: 1;
+  justify-content: flex-start;
+}
+
+html body #moduleSidebarSetup {
+  min-height: var(--setup-panel-min-height, 0px);
+}
+
+html body #moduleSidebarSetup .module-sidebar-context>details>summary {
+  padding-block: calc(5px + var(--setup-section-extra, 0px) / 2);
+}
+
+html body #moduleSidebarSetup .widget-config,
+html body #moduleSidebarSetup .widget-axis-shelf {
+  gap: 16px;
+  padding-block: 16px;
+}
+
+html body #moduleSidebarSetup select {
+  min-height: 46px;
+}
+
+html body #moduleSidebarSetup .module-date-filter select {
+  height: 46px;
+}
+
+html body.reporting-active #reportFieldPalette .dictionary-folder>summary {
+  padding-block: 17px;
+}
+
+/* A selected report opens Setup beside Dictionary, with room for both cards. */
+@media(min-width:901px) {
+  html body.reporting-active #reportingView .report-grid {
+    grid-template-columns: minmax(0, var(--report-sidebar-total-width, var(--report-sidebar-width, 360px))) 6px minmax(0, 1fr);
+  }
+
+  html body.reporting-active.report-setup-visible main.shell {
+    width: calc(var(--report-sidebar-total-width) + 1070.5px);
+    min-width: calc(var(--report-sidebar-total-width) + 1070.5px);
+    max-width: calc(var(--report-sidebar-total-width) + 1070.5px) !important;
+    left: 0;
+  }
+
+  html body.reporting-active.report-setup-visible #reportingView .sidebar-with-module-setup {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+
+  html body.reporting-active.report-setup-visible #moduleSidebarSetup {
+    margin-top: 0;
+  }
+
+  html:has(body.reporting-active.report-setup-visible),
+  html body.reporting-active.report-setup-visible {
+    overflow-x: auto !important;
+  }
+}
+
+/* Floating report actions are painted only inside their measured canvas bounds. */
+html body #selectedModuleToolbar {
+  margin: 0 !important;
+  right: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  overflow: hidden;
+  clip-path: inset(0);
+}
+
+html body #selectedModuleToolbar>* {
+  min-width: 0;
+  max-width: 100%;
+}
+
+html body #selectedModuleToolbar button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Remove report-count and canvas-size helper lines from the reporting workspace. */
+html body #reportingView #sheetDescription,
+html body #reportingView #reportGridInfo {
+  display: none !important;
+}
+
+/* Reserve a separate action row so modules start below the floating toolbar. */
+html body #selectedModuleToolbarSpace {
+  width: 100%;
+  max-width: 984.5px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+html body #selectedModuleToolbarSpace[hidden] {
+  display: none !important;
+}
+
+/* Reporting page formats, individual locks, and Dictionary definition focus. */
+html body #reportCanvasFormat {
+  display: none;
+  width: auto;
+  max-width: 170px;
+  min-height: 32px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 12px;
+  border-radius: 9px;
+  border: 1px solid var(--border, #d2cec6);
+  background: #34332f;
+  color: #f7f3e9;
+}
+
+html body.reporting-active #reportCanvasFormat {
+  display: inline-block;
+}
+
+html body #reportCanvasInner {
+  position: relative;
+}
+
+html body #reportPageBoundary {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  border: 1px dashed #817c70;
+  pointer-events: none;
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+html body .report-widget.outside-page {
+  outline: 1px dashed #9b6a41;
+}
+
+html body .report-widget.outside-page.module-selected::after {
+  content: attr(data-page-warning);
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+  font-size: 10px;
+  color: #795333;
+  pointer-events: none;
+}
+
+html body .report-widget[data-locked="true"] :is(.module-drag-handle, .module-resize-handle) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html body [data-module-select] {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #a39e92;
+  border-radius: 4px;
+  background: #eee9de;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+html body [data-module-select]:checked {
+  background: #34332f;
+}
+
+html body [data-module-select]:checked::after {
+  content: '🔒';
+  display: block;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+}
+
+html body #reportLock {
+  display: none !important;
+}
+
+html body .report-table .subtotal-row>*,
+html body .report-table .subtotal-cell {
+  background: #e8e0d0;
+  font-weight: 600;
+}
+
+html body .report-table [data-row-kind="header"]>* {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #e9e5dc;
+}
+
+html body .report-table :is(.grand-total-column, .grand-total-row > *),
+html body .report-table [data-row-kind="grand-total"]>* {
+  background: #d4cdbd;
+  font-weight: 700;
+}
+
+html body .definition-library-tools {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+html body #definitionSearch {
+  flex: 1;
+  min-width: 180px;
+  font: inherit;
+  font-size: 12px;
+}
+
+html body .definition-formula-card>summary,
+html body .definition-label-stack>summary {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+html body.dictionary-active .definition-formula-card[open] {
+  position: fixed;
+  z-index: 1500;
+  inset: 10vh max(24px, calc((100vw - 1100px)/2));
+  width: auto;
+  height: 80vh;
+  max-height: 80vh;
+  overflow: auto;
+  box-sizing: border-box;
+  background: #f4f0e6;
+  border: 1px solid #77736a;
+  border-radius: 14px;
+  box-shadow: 0 20px 65px #25231f40;
+  padding: 18px;
+}
+
+html body.dictionary-active.definition-editor-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: #29272040;
+  z-index: 1400;
+  pointer-events: none;
+}
+
+html body .definition-formula-card[open] .definition-code {
+  min-height: 38vh;
+  font-size: 13px;
+}
+
+html body .definition-card-meta {
+  font-size: 11px;
+  color: #6b665d;
+  margin: 8px 0;
+}
+
+html body .definition-formula-card[hidden],
+html body .definition-label-stack[hidden] {
+  display: none !important;
+}
+
+@media(max-width:600px) {
+  html body.dictionary-active .definition-formula-card[open] {
+    inset: 5vh 10px;
+    height: 90vh;
+    max-height: 90vh;
+  }
+}
+
+/* Keep new controls consistent with existing Studio typography and buttons. */
+html body #reportCanvasFormat {
+  height: 36px;
+  min-height: 36px;
+  padding: 9px 12px;
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+html body .definition-formula-card {
+  text-align: left;
+}
+
+html body .definition-formula-card>summary,
+html body .definition-formula-card>summary span {
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+html body .definition-card-meta {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Definition state remains visible in the collapsed library and floating editor. */
+html body.dictionary-active .definition-formula-card[data-definition-status="saved"] {
+  background: #edf6ec;
+  border-color: #bdd1bb;
+}
+
+html body.dictionary-active .definition-formula-card[data-definition-status="draft"] {
+  background: #fff7dc;
+  border-color: #dccc98;
+}
+
+html body.dictionary-active .definition-formula-card[data-definition-status="error"] {
+  background: #fbe9e7;
+  border-color: #deb8b3;
+}
+
+html body .definition-formula-card>summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+html body .definition-formula-card>summary>span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+html body .definition-status-label {
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #514d43;
+  white-space: nowrap;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+html body button.definition-delete-button {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: 0;
+  border: 1px solid #a9a295;
+  border-radius: 6px;
+  background: transparent !important;
+  color: #514d43 !important;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+html body button.definition-delete-button:hover {
+  background: #f3d5d0 !important;
+  color: #632e26 !important;
+}
+
+@media(max-width:600px) {
+  html body .definition-formula-card>summary {
+    flex-wrap: wrap;
+  }
+
+  html body .definition-status-label {
+    white-space: normal;
+  }
+}
+
+/* Error text remains selectable; only the diagnostic underline is painted over it. */
+html body .definition-error-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 8px;
+  text-align: left;
+}
+
+html body .definition-error-layer pre {
+  margin: 0;
+  box-sizing: border-box;
+  white-space: pre;
+  color: transparent;
+  background: transparent;
+  border-style: solid;
+  border-color: transparent;
+  text-transform: none;
+  text-align: left;
+  transform-origin: top left;
+}
+
+html body .definition-error-token {
+  background: transparent;
+  color: transparent;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #bb302e;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+html body .definition-card-editor .code-suggestions {
+  z-index: 5;
+}

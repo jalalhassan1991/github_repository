@@ -1,0 +1,43 @@
+{
+  "checks": [
+    "18 named palettes available",
+    "Every palette has eight distinct pastel colors",
+    "Configuration dropdown has all palettes",
+    "Palette preview has eight swatches",
+    "Palette Start removed from UI and configuration",
+    "Palette choice repaints the existing graph",
+    "Palette change does not scan or regenerate records",
+    "Palette choice saved",
+    "Updated legend swatches match graph colors",
+    "Dimension sorting does not regenerate source records",
+    "Dimension sorting immediately changes displayed order",
+    "Metric Cards hide palette selection",
+    "Multi-measure Metric Cards retained",
+    "Spreadsheets hide palette selection",
+    "Spreadsheet sorts without source refresh",
+    "Individual dates are the default granularity",
+    "Date navigation contains only two arrow buttons",
+    "Date hierarchy selectors and extra buttons removed",
+    "Day endpoint disables the left arrow",
+    "Right arrow groups to week",
+    "Right arrow groups to month",
+    "Right arrow groups to year",
+    "Year endpoint disables right arrow",
+    "Left arrow expands to month",
+    "Left arrow expands to week",
+    "Left arrow expands to day",
+    "Date sorting updates without refreshing source records",
+    "No theme toggle reintroduced"
+  ],
+  "dailyTotal": 53,
+  "measuredOn": "2026-11-24",
+  "environment": "Local macOS WebKit browser",
+  "syntheticUsers": 1000,
+  "seed": 3280873347,
+  "notes": [
+    "18 light-pastel presets replace Palette Start.",
+    "Only eligible graphs expose Color Palette; Metric Cards and Spreadsheets omit it.",
+    "Individual Dates is the default; right arrow groups to Week/Month/Year and left arrow expands back.",
+    "Date and dimension sorting and palette redraws use displayed aggregates without scanning or regenerating source records."
+  ]
+}

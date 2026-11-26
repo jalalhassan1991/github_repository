@@ -35,16 +35,27 @@ MAC_APP_HTML = (
 
 def sync_sources() -> None:
     source = SOURCE_JS.read_text(encoding="utf-8")
+    tools_source = (ROOT / "studio_reporting_tools.js").read_text(encoding="utf-8")
     # The first line documents that the JavaScript file is the source of truth.
     if source.startswith("//"):
         source = source.split("\n", 1)[1]
+    source = tools_source + "\n" + source
     embedded = "<script>\n" + "\n".join(
         f"  {line}" if line else "" for line in source.rstrip().splitlines()
     ) + "\n  </script>"
 
     html = SOURCE_HTML.read_text(encoding="utf-8")
+    # Reuse the landing page's tokens/type while keeping flat app components.
+    theme = (ROOT / "studio_theme.css").read_text(encoding="utf-8")
+    theme_block = '<style id="landing-page-theme">\n' + theme + '\n</style>'
+    if '<style id="landing-page-theme">' in html:
+        html = re.sub(r'<style id="landing-page-theme">.*?</style>',
+                      lambda _match: theme_block, html, count=1, flags=re.DOTALL)
+    else:
+        html = html.replace('</head>', theme_block + '\n</head>', 1)
+
     html = re.sub(
-        r"<script>window\.__SUBSCRIPTION_STUDIO_DEFAULTS__=.*?</script>",
+        r"<script>\s*window\.__SUBSCRIPTION_STUDIO_DEFAULTS__\s*=.*?</script>",
         "<!-- DEFAULT_STUDIO_INSTANCE -->",
         html,
         count=1,
@@ -60,12 +71,21 @@ def sync_sources() -> None:
     if count != 1:
         raise RuntimeError(f"Expected one inline script in {SOURCE_HTML}")
     if DEFAULT_INSTANCE_FILE.exists():
-        defaults = json.dumps(json.loads(DEFAULT_INSTANCE_FILE.read_text(encoding="utf-8")), separators=(",", ":")).replace("</", "<\\/")
-        default_script = f"<script>window.__SUBSCRIPTION_STUDIO_DEFAULTS__={defaults};</script>"
+        defaults = json.dumps(
+            json.loads(DEFAULT_INSTANCE_FILE.read_text(encoding="utf-8")),
+            indent=2,
+        ).replace("</", "<\\/")
+        default_script = f"<script>\nwindow.__SUBSCRIPTION_STUDIO_DEFAULTS__ = {defaults};\n</script>"
         updated = updated.replace("<!-- DEFAULT_STUDIO_INSTANCE -->", default_script)
 
     SOURCE_HTML.write_text(updated, encoding="utf-8")
     WINDOWS_HTML.write_text(updated, encoding="utf-8")
+    if MAC_APP_HTML.parent.exists():
+        MAC_APP_HTML.write_text(
+            updated.replace('src="./data_dictionary_definitions.js"',
+                            'src="../../../data_dictionary_definitions.js"'),
+            encoding="utf-8",
+        )
     if RULES_SOURCE.exists():
         RULES_COPY.write_bytes(RULES_SOURCE.read_bytes())
         (WINDOWS_DIR / RULES_COPY.name).write_bytes(RULES_SOURCE.read_bytes())
@@ -74,7 +94,12 @@ def sync_sources() -> None:
     if DICTIONARY_FILE.exists():
         (WINDOWS_DIR / DICTIONARY_FILE.name).write_bytes(DICTIONARY_FILE.read_bytes())
         (MAC_DIR / DICTIONARY_FILE.name).write_bytes(DICTIONARY_FILE.read_bytes())
-    print("Synchronized source JavaScript and Windows HTML launcher.")
+    # Shared landing-page files must accompany either local launcher.
+    for name in ("index.html", "intro.css", "intro.js"):
+        for destination in (WINDOWS_DIR, MAC_APP_HTML.parent):
+            if destination.exists():
+                shutil.copy2(ROOT / name, destination / name)
+    print("Synchronized source JavaScript and HTML launchers.")
 
 
 def build_mac() -> None:

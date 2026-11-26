@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-24",
+  "environment": "macOS WebKit, seeded 1000-user synthetic dataset",
+  "seed": 3280873347,
+  "runs": [
+    {
+      "checks": [
+        "Canvas uses 24 columns",
+        "Canvas is at least 1920px wide",
+        "Canvas has at least 80 rows and 1600px height",
+        "Page width stays within viewport",
+        "Larger canvas scrolls inside report area",
+        "Gridlines are visible",
+        "Rulers show 24 columns and row numbers",
+        "Legacy module sizes migrate to finer cells",
+        "Migrated half-width modules preserve side-by-side layout",
+        "Grid migration is idempotent",
+        "New report size limits available",
+        "Resize tooltip exposes limits",
+        "Drag moves module to chosen empty grid cells",
+        "Drag keeps module ordering stable",
+        "Occupied drop cells reject overlap",
+        "Drag preview highlights cell footprint",
+        "Invalid placement has distinct preview",
+        "Reports resize down to 4 columns and 16 rows",
+        "Reports resize up to 24 columns and 80 rows",
+        "Canvas grows vertically with occupied space",
+        "Large module pixel limits match finer grid",
+        "Presentation retains grid size",
+        "Presentation hides grid guides",
+        "New placeholders use new grid sizes",
+        "Placeholders can shrink to 1 column and 2 rows",
+        "Small placeholder remains transparent",
+        "Cell positions and grid version are saved",
+        "Grid dimensions survive Studio export",
+        "Both reports still calculate",
+        "No modules overlap",
+        "Resize collision is rejected",
+        "Placement does not regenerate or recalculate data"
+      ],
+      "viewport": 1440,
+      "canvasWidth": 1920,
+      "reportLimits": {
+        "minColumns": 4,
+        "maxColumns": 24,
+        "minRows": 16,
+        "maxRows": 80
+      },
+      "placeholderLimits": {
+        "minColumns": 1,
+        "maxColumns": 24,
+        "minRows": 2,
+        "maxRows": 80
+      }
+    },
+    {
+      "checks": [
+        "Canvas uses 24 columns",
+        "Canvas is at least 1920px wide",
+        "Canvas has at least 80 rows and 1600px height",
+        "Page width stays within viewport",
+        "Larger canvas scrolls inside report area",
+        "Gridlines are visible",
+        "Rulers show 24 columns and row numbers",
+        "Legacy module sizes migrate to finer cells",
+        "Migrated half-width modules preserve side-by-side layout",
+        "Grid migration is idempotent",
+        "New report size limits available",
+        "Resize tooltip exposes limits",
+        "Drag moves module to chosen empty grid cells",
+        "Drag keeps module ordering stable",
+        "Occupied drop cells reject overlap",
+        "Drag preview highlights cell footprint",
+        "Invalid placement has distinct preview",
+        "Reports resize down to 4 columns and 16 rows",
+        "Reports resize up to 24 columns and 80 rows",
+        "Canvas grows vertically with occupied space",
+        "Large module pixel limits match finer grid",
+        "Presentation retains grid size",
+        "Presentation hides grid guides",
+        "New placeholders use new grid sizes",
+        "Placeholders can shrink to 1 column and 2 rows",
+        "Small placeholder remains transparent",
+        "Cell positions and grid version are saved",
+        "Grid dimensions survive Studio export",
+        "Both reports still calculate",
+        "No modules overlap",
+        "Resize collision is rejected",
+        "Placement does not regenerate or recalculate data"
+      ],
+      "viewport": 1024,
+      "canvasWidth": 1920,
+      "reportLimits": {
+        "minColumns": 4,
+        "maxColumns": 24,
+        "minRows": 16,
+        "maxRows": 80
+      },
+      "placeholderLimits": {
+        "minColumns": 1,
+        "maxColumns": 24,
+        "minRows": 2,
+        "maxRows": 80
+      }
+    },
+    {
+      "checks": [
+        "Canvas uses 24 columns",
+        "Canvas is at least 1920px wide",
+        "Canvas has at least 80 rows and 1600px height",
+        "Page width stays within viewport",
+        "Larger canvas scrolls inside report area",
+        "Gridlines are visible",
+        "Rulers show 24 columns and row numbers",
+        "Legacy module sizes migrate to finer cells",
+        "Migrated half-width modules preserve side-by-side layout",
+        "Grid migration is idempotent",
+        "New report size limits available",
+        "Resize tooltip exposes limits",
+        "Drag moves module to chosen empty grid cells",
+        "Drag keeps module ordering stable",
+        "Occupied drop cells reject overlap",
+        "Drag preview highlights cell footprint",
+        "Invalid placement has distinct preview",
+        "Reports resize down to 4 columns and 16 rows",
+        "Reports resize up to 24 columns and 80 rows",
+        "Canvas grows vertically with occupied space",
+        "Large module pixel limits match finer grid",
+        "Presentation retains grid size",
+        "Presentation hides grid guides",
+        "New placeholders use new grid sizes",
+        "Placeholders can shrink to 1 column and 2 rows",
+        "Small placeholder remains transparent",
+        "Cell positions and grid version are saved",
+        "Grid dimensions survive Studio export",
+        "Both reports still calculate",
+        "No modules overlap",
+        "Resize collision is rejected",
+        "Placement does not regenerate or recalculate data"
+      ],
+      "viewport": 768,
+      "canvasWidth": 1920,
+      "reportLimits": {
+        "minColumns": 4,
+        "maxColumns": 24,
+        "minRows": 16,
+        "maxRows": 80
+      },
+      "placeholderLimits": {
+        "minColumns": 1,
+        "maxColumns": 24,
+        "minRows": 2,
+        "maxRows": 80
+      }
+    }
+  ],
+  "minimum_canvas_pixels": {
+    "width": 1920,
+    "height": 1600
+  },
+  "report_pixels_at_minimum_canvas_width": {
+    "minimum": [
+      315,
+      314
+    ],
+    "maximum": [
+      1920,
+      1594
+    ]
+  },
+  "placeholder_minimum_pixels": [
+    74.25,
+    34
+  ],
+  "status": "Historical fixed-canvas checks; superseded by reporting_workbench_checks.json"
+}

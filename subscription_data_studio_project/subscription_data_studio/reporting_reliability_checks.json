@@ -1,0 +1,530 @@
+{
+  "measuredOn": "2026-11-23",
+  "environment": "Local macOS WebKit browser",
+  "featureChecks": [
+    "NULL addition",
+    "Zero denominator",
+    "NULL comparison",
+    "NULL OR TRUE",
+    "NULL AND FALSE",
+    "COALESCE opt-in",
+    "CASE branch",
+    "Nested CASE",
+    "Null in unused branch",
+    "Fraction formatting",
+    "Unsafe join rejected",
+    "Report succeeded",
+    "Window SUM across displayed categories",
+    "Window MEAN across displayed categories",
+    "Window total not repeated sum",
+    "Inspector worker location",
+    "Inspector accepted facts",
+    "Inspector cache hit",
+    "Sequential filter counts",
+    "Independent date exclusions inspected",
+    "Saved lineage available",
+    "Definition comparison detects added fields",
+    "Table serialization retained",
+    "Fraction serialization retained",
+    "Legacy points survive roundtrip",
+    "Independent date row UI",
+    "Date range staged independently",
+    "Date apply commits draft",
+    "Inspector hidden with setup",
+    "Version snapshots visible",
+    "Lineage rows visible",
+    "Comparison UI populated",
+    "Empty dates not restored",
+    "Explicit fact table counted",
+    "Local fallback agrees",
+    "Save stamps portable contracts",
+    "Instance carries versions",
+    "Instance carries independent filters"
+  ],
+  "seededRegression": {
+    "dataset": {
+      "user_records": {
+        "count": 1000,
+        "hash": 3024157984
+      },
+      "marketing_records": {
+        "count": 21918,
+        "hash": 3759823942
+      },
+      "subscription_records": {
+        "count": 1182,
+        "hash": 717150818
+      },
+      "subscription_change_records": {
+        "count": 3587,
+        "hash": 3079823729
+      },
+      "scheduled_subscription_payment_records": {
+        "count": 12595,
+        "hash": 1267297553
+      },
+      "transaction_records": {
+        "count": 6815,
+        "hash": 2325665779
+      },
+      "failed_transactions": {
+        "count": 2656,
+        "hash": 1799604314
+      }
+    },
+    "initial": [
+      {
+        "name": "CASE",
+        "csv": [
+          [
+            "state",
+            "benchmark_case"
+          ],
+          [
+            "Grand Total",
+            "182"
+          ],
+          [
+            "AZ",
+            "18"
+          ],
+          [
+            "CA",
+            "34"
+          ],
+          [
+            "CO",
+            "11"
+          ],
+          [
+            "FL",
+            "11"
+          ],
+          [
+            "GA",
+            "18"
+          ],
+          [
+            "IL",
+            "16"
+          ],
+          [
+            "MA",
+            "10"
+          ],
+          [
+            "NC",
+            "7"
+          ],
+          [
+            "NY",
+            "13"
+          ],
+          [
+            "OR",
+            "10"
+          ],
+          [
+            "TX",
+            "18"
+          ],
+          [
+            "WA",
+            "16"
+          ]
+        ],
+        "failed": false
+      },
+      {
+        "name": "Scheduled",
+        "csv": [
+          [
+            "state",
+            "benchmark_scheduled"
+          ],
+          [
+            "Grand Total",
+            "315,617.65"
+          ],
+          [
+            "AZ",
+            "22,922.03"
+          ],
+          [
+            "CA",
+            "62,169.16"
+          ],
+          [
+            "CO",
+            "17,992.75"
+          ],
+          [
+            "FL",
+            "19,353.14"
+          ],
+          [
+            "GA",
+            "29,096.14"
+          ],
+          [
+            "IL",
+            "27,865.75"
+          ],
+          [
+            "MA",
+            "12,646.89"
+          ],
+          [
+            "NC",
+            "8,001.75"
+          ],
+          [
+            "NY",
+            "27,274.85"
+          ],
+          [
+            "OR",
+            "17,027.94"
+          ],
+          [
+            "TX",
+            "38,420.17"
+          ],
+          [
+            "WA",
+            "32,847.08"
+          ]
+        ],
+        "failed": false
+      },
+      {
+        "name": "Revenue",
+        "csv": [
+          [
+            "state",
+            "net_revenue"
+          ],
+          [
+            "Grand Total",
+            "$323,750.70"
+          ],
+          [
+            "AZ",
+            "$24,737.20"
+          ],
+          [
+            "CA",
+            "$63,754.97"
+          ],
+          [
+            "CO",
+            "$18,880.85"
+          ],
+          [
+            "FL",
+            "$19,966.22"
+          ],
+          [
+            "GA",
+            "$30,241.66"
+          ],
+          [
+            "IL",
+            "$29,302.59"
+          ],
+          [
+            "MA",
+            "$12,676.82"
+          ],
+          [
+            "NC",
+            "$7,694.76"
+          ],
+          [
+            "NY",
+            "$27,566.02"
+          ],
+          [
+            "OR",
+            "$16,596.04"
+          ],
+          [
+            "TX",
+            "$40,993.95"
+          ],
+          [
+            "WA",
+            "$31,339.62"
+          ]
+        ],
+        "failed": false
+      },
+      {
+        "name": "Count",
+        "csv": [
+          [
+            "state",
+            "total_subscriptions"
+          ],
+          [
+            "Grand Total",
+            "1,182"
+          ],
+          [
+            "AZ",
+            "91"
+          ],
+          [
+            "CA",
+            "233"
+          ],
+          [
+            "CO",
+            "68"
+          ],
+          [
+            "FL",
+            "78"
+          ],
+          [
+            "GA",
+            "101"
+          ],
+          [
+            "IL",
+            "114"
+          ],
+          [
+            "MA",
+            "56"
+          ],
+          [
+            "NC",
+            "37"
+          ],
+          [
+            "NY",
+            "88"
+          ],
+          [
+            "OR",
+            "59"
+          ],
+          [
+            "TX",
+            "146"
+          ],
+          [
+            "WA",
+            "111"
+          ]
+        ],
+        "failed": false
+      },
+      {
+        "name": "Discount",
+        "csv": [
+          [
+            "state",
+            "discount_value"
+          ],
+          [
+            "Grand Total",
+            "$5,372.05"
+          ],
+          [
+            "AZ",
+            "$510.23"
+          ],
+          [
+            "CA",
+            "$1,001.52"
+          ],
+          [
+            "CO",
+            "$272.83"
+          ],
+          [
+            "FL",
+            "$289.95"
+          ],
+          [
+            "GA",
+            "$536.22"
+          ],
+          [
+            "IL",
+            "$496.55"
+          ],
+          [
+            "MA",
+            "$304.29"
+          ],
+          [
+            "NC",
+            "$252.31"
+          ],
+          [
+            "NY",
+            "$283.65"
+          ],
+          [
+            "OR",
+            "$281.78"
+          ],
+          [
+            "TX",
+            "$615.41"
+          ],
+          [
+            "WA",
+            "$527.31"
+          ]
+        ],
+        "failed": false
+      },
+      {
+        "name": "Refund",
+        "csv": [
+          [
+            "state",
+            "refund_value"
+          ],
+          [
+            "Grand Total",
+            "$7,299.34"
+          ],
+          [
+            "AZ",
+            "$265.13"
+          ],
+          [
+            "CA",
+            "$1,449.89"
+          ],
+          [
+            "CO",
+            "$517.11"
+          ],
+          [
+            "FL",
+            "$712.13"
+          ],
+          [
+            "GA",
+            "$455.32"
+          ],
+          [
+            "IL",
+            "$883.41"
+          ],
+          [
+            "MA",
+            "$640.22"
+          ],
+          [
+            "NC",
+            "$367.07"
+          ],
+          [
+            "NY",
+            "$324.08"
+          ],
+          [
+            "OR",
+            "$531.49"
+          ],
+          [
+            "TX",
+            "$660.70"
+          ],
+          [
+            "WA",
+            "$492.79"
+          ]
+        ],
+        "failed": false
+      }
+    ],
+    "filtered": [
+      [
+        "state",
+        "benchmark_case"
+      ],
+      [
+        "Grand Total",
+        "34"
+      ],
+      [
+        "CA",
+        "34"
+      ]
+    ],
+    "restored": [
+      [
+        "state",
+        "benchmark_case"
+      ],
+      [
+        "Grand Total",
+        "182"
+      ],
+      [
+        "AZ",
+        "18"
+      ],
+      [
+        "CA",
+        "34"
+      ],
+      [
+        "CO",
+        "11"
+      ],
+      [
+        "FL",
+        "11"
+      ],
+      [
+        "GA",
+        "18"
+      ],
+      [
+        "IL",
+        "16"
+      ],
+      [
+        "MA",
+        "10"
+      ],
+      [
+        "NC",
+        "7"
+      ],
+      [
+        "NY",
+        "13"
+      ],
+      [
+        "OR",
+        "10"
+      ],
+      [
+        "TX",
+        "18"
+      ],
+      [
+        "WA",
+        "16"
+      ]
+    ],
+    "cacheInvalidation": true
+  },
+  "benchmarkFile": "performance_benchmarks.json",
+  "limits": [
+    "One benchmark run per size; timings vary by machine.",
+    "Definition history is view-only; previous code can be copied into the editor.",
+    "Join validation supports declared row contexts rather than arbitrary SQL joins.",
+    "Existing source-row table statistics and percentage scales retain their original semantics until explicitly changed."
+  ]
+}
